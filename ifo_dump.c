@@ -1,7 +1,7 @@
-/* -*- c-basic-offset: 2; indent-tabs-mode: nil -*- */
 /*
- * Copyright (C) 2000 Björn Englund <d4bjorn@dtek.chalmers.se>,
- *                    Håkan Hjort <d95hjort@dtek.chalmers.se>
+ * Copyright (C) 2000 Bjï¿½rn Englund <d4bjorn@dtek.chalmers.se>,
+ *                    Hï¿½kan Hjort <d95hjort@dtek.chalmers.se>
+ * Copyright (C) 2020 Bond_009 <bond.009@outlook.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,17 +19,10 @@
  * USA
  */
 
-#include "config.h"
-
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-#if defined(HAVE_INTTYPES_H)
-#include <inttypes.h>
-#elif defined(HAVE_STDINT_H)
-#include <stdint.h>
-#endif
 
 #include <dvdread/dvd_reader.h>
 #include <dvdread/ifo_print.h>
@@ -45,22 +38,22 @@ int main(int argc, char *argv[])
 {
   dvd_reader_t *dvd;
   program_name = argv[0];
-  
-  if(argc != 3) {
+
+  if (argc != 3)
+  {
     usage();
     return 1;
   }
 
-  dvd = DVDOpen( argv[ 1 ] );
-  if( !dvd ) {
-    fprintf( stderr, "Can't open disc %s!\n", argv[ 1 ] );
+  dvd = DVDOpen(argv[1]);
+  if (!dvd)
+  {
+    fprintf(stderr, "Can't open disc %s!\n", argv[1]);
     return -1;
   }
 
-  ifoPrint( dvd, atoi( argv[ 2 ] ) );
+  ifo_print(dvd, atoi(argv[2]));
   DVDClose(dvd);
 
-  DVDFinish(); //to keep memory checkers from complaining 
-  return 0;  
+  return 0;
 }
-
