@@ -29,7 +29,7 @@
 
 static char *program_name;
 
-void usage(void)
+static void usage(void)
 {
   fprintf(stderr, "Usage: %s <dvd path> <title number>\n", program_name);
 }
