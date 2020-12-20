@@ -5,7 +5,7 @@ set(SOURCES ifo_dump.c)
 
 # Add the executable
 add_executable(ifo_dump ${SOURCES})
-target_compile_options(ifo_dump PUBLIC -std=c89 -Wall -Wextra -Weverything -Wstrict-aliasing -pedantic -fstrict-aliasing)
+target_compile_options(ifo_dump PUBLIC -std=c89 -Wall -Wextra -Wstrict-aliasing -pedantic -fstrict-aliasing)
 
 # Include libdvdread
 target_link_libraries(ifo_dump dvdread)
